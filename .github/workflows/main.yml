@@ -28,3 +28,25 @@ jobs:
       with:
         name: sast-findings
         path: sast-report.json
+
+  sca_scan:
+    name: Run Safety for SCA
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Safety
+        run: pip install safety
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Safety
+        run: safety check -r requirements.txt 
