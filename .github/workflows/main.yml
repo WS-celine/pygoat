@@ -49,4 +49,11 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Safety
-        run: safety check -r requirements.txt 
+        run: safety check -r requirements.txt --output json > safety-report.json
+
+      - name: Upload Safety Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: safety-findings
+          path: safety-report.json
