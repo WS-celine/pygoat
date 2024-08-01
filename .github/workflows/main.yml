@@ -45,9 +45,6 @@ jobs:
       - name: Install Safety
         run: pip install safety
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-
       - name: Run Safety
         run: safety check -r requirements.txt --output json > safety-report.json
 
