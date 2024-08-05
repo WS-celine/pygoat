@@ -78,6 +78,9 @@ jobs:
        # echo ${{ secrets.DOCKER_PWD }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
        # docker scout quickview
        # docker scout cves
+       
+    - name: List Docker images
+      run: docker images
         
     - name: Docker Scout Scan
       uses: docker/scout-action@v1.0.9
