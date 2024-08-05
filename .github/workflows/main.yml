@@ -83,7 +83,7 @@ jobs:
       run: docker images
         
     - name: Docker Scout Scan
-      uses: docker/scout-action@v1.0.9
+      uses: docker/scout-action@v1.12.0
       with:
         dockerhub-user: ${{ secrets.DOCKER_USER }}
         dockerhub-password: ${{ secrets.DOCKER_PWD }}
