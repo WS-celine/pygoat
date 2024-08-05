@@ -70,3 +70,10 @@ jobs:
 
     - name: Build Docker image
       run: docker build -f Dockerfile -t myapp:latest .
+
+    - name: Docker Scout Scan
+      uses: docker/scout-action@v1.0.9
+      with: 
+        dockerhub-user: ${{secret.DOCKER_USER}}
+        dockerhub-password: ${{secrets.DOCKER_PWD}}
+        command: quickview, cves
